@@ -1,8 +1,4 @@
-
-معلومات مهمه
-
-
-لتفعيل الحمايه القصوى للروابط فعل ملف * اولا lock_link
+# Channel : [porgramer2017 💡 ](t.me/porgramer2017)
 
 
 لتنصيب البوت ضع الاكواد بلسره * ثانيا
@@ -11,24 +7,28 @@
 
 2-/  sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev
 
-3-/  git clone https://github.com/aboskroop/smilebot.git
+3-/  git clone https://github.com/aboskroop/smilev4.git
 
-4-/  cd smilebot
+4-/  cd smilev4
 
 5-/  chmod +x launch.sh
 
 6-/  ./launch.sh install
 
-7-/  ./launch.sh
+اذا كنت تريد الربط على الرقم اكتب
+ 
+ ./launch.sh
+ 
+ اذا كنت تريد الربط على التوكن اكتب
+ 
+ ./launch.sh -bw
 
 
-وحط رقمك وارفع نفسك مطور من الكونفغ 
-
-بعدين افتح ترمنل واكتب 
+من تخلص نهائياافتح ترمنل واكتب 
 
 redis-server
 
-ومبروك عليك السورس
+وشغل البوت ومبروك عليك السورس
 
 للاستفسار 
 @iq_100k
@@ -37,4 +37,4 @@ redis-server
 قناه البوت
 @porgramer2017
 
-# Channel : [porgramer2017 💡 ](https://telegram.me/C9_pro)
+# Channel : [porgramer2017 💡 ](t.me/porgramer2017)
