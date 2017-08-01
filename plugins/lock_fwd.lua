@@ -25,12 +25,12 @@ local function iq_100k(msg, matches)
     if is_momod(msg) and matches[1] == 'قفل التوجيه' then
                     local hash = 'mate:'..msg.to.id
                     redis:set(hash, true)
-                    local text = '<b>  ¦ Protection Forward ON </b>💡️ \n <b> ¦ from ⚠️ : </b>  '..(msg.from.first_name or "erorr")..'\n' 
+                    local text = '<b> ¦  تم فتح التوجيه بنجاح </b>📮 \n <b>¦ بواسطه ⚠️ : </b> @'..(msg.from.username or "erorr")..'\n<b>→→→→⚙️SV4→→→→</b> \n <b>¦ جديدنا </b> 📚 @porgramer2017'
                     return reply_msg(msg.id, text, ok_cb, false) 
   elseif is_momod(msg) and matches[1] == 'فتح التوجيه' then
       local hash = 'mate:'..msg.to.id
       redis:del(hash)
-local text = '<b>  ¦  Protection Forward OFF </b>⛔️ \n <b> ¦ from ⚠️ : </b>  '..(msg.from.first_name or "erorr")..'\n' 
+local text = '<b> ¦  تم فتح التوجيه بنجاح </b>✖️ \n <b>¦ بواسطه ⚠️ : </b> @'..(msg.from.username or "erorr")..'\n<b>→→→→⚙️SV4→→→→</b> \n <b>¦ جديدنا </b> 📚 @porgramer2017'
 return reply_msg(msg.id, text, ok_cb, false) 
 end
 
