@@ -50,11 +50,11 @@ local function run (msg, matches)
   local chatId = msg.to.id
   if matches[1] == 'قفل البوتات' then
     enableAntiBot(chatId)
-  return '  <b> add bot loked </b> 💡'
+  return '  <b>تم قفل البوتات بنجاح¦</b> 👨🏻‍💻'
   end
   if matches[1] == 'فتح البوتات' then
     disableAntiBot(chatId)
-  return '  <b> add bot unloked </b>💡 '
+  return '  <b>تم فتح البوتات بنجاح¦</b> 👨🏻‍💻'
   end
   if matches[1] == 'chat_add_user' or matches[1] == 'chat_add_user_link' then
     local user = msg.action.user or msg.from
@@ -74,11 +74,7 @@ local function run (msg, matches)
 end
 
 return {
-  description = 'Anti bot create by Mustafa ip',
-  usage = {
-    '/bot lock: locked add bots to supergroup',
-    '/bot unlock: unlock add bots to supergroup'
-  },
+  description = 'anti api bots by smile team',
   patterns = {
     '^(قفل البوتات)$',
     '^(فتح البوتات)$',
