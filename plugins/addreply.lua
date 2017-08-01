@@ -23,14 +23,12 @@ local function get_value(msg, var_name)
     end
   end
 end
--- by @Dev_ar
-
 local function list_chats(msg)
   local hash = get_variables_hash(msg)
 
   if hash then
     local names = redis:hkeys(hash)
-    local text = ' <b> all replay seted  </b>💡  \n\n'
+     local text = ' <b> جميع الردود المضافه للبوت  </b>💡  \n\n'
     for i=1, #names do
       text = text..'® '..names[i]..'\n'
     end
@@ -51,8 +49,8 @@ local function save_value(msg, name, value)
   end
   if hash then
     redis:hset(hash, name, value)
-    return '('..name..')\n  <b> reply has been add  </b>🚩 '
-  end
+return '<b>تم اضافه الرد بنجاح 🗑 </b>\n <b>الرد هو ☃️ </b>  ('..name..') '
+end
 end
 local function del_value(msg, name)
   if not name then
@@ -64,8 +62,8 @@ local function del_value(msg, name)
   end
   if hash then
     redis:hdel(hash, name)
-    return '('..name..')\n  <b> reply has been deleted  </b>❌  ' 
-  end
+return '<b>تم حذف الرد بنجاح 🗑 </b>\n <b>الرد هو ☹️ </b>  ('..name..') '
+end
 end
 
 local function delallchats(msg)
@@ -76,7 +74,7 @@ local function delallchats(msg)
     for i=1, #names do
       redis:hdel(hash,names[i])
     end
-    return " <b> all reply has been deleted  </b>❌"
+    return " <b> تم حذف جميع الردود </b>❌"
 	else
 	return 
   end
