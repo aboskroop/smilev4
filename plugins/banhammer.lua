@@ -20,8 +20,7 @@ local function pre_process(msg)
       print('User is banned!')
       local print_name = user_print_name(msg.from):gsub("‮", "")
 	  local name = print_name:gsub("_", "")
-      savelog(msg.to.id, name.." ["..msg.from.id.."] <b> is banned and kicked ! </b>❌ ")-- Save to logs
-      kick_user(user_id, msg.to.id)
+savelog(msg.to.id, name.."  <b> تم طرده وحظره بنجاح </b>❌ ‏["..msg.from.id.."] ")-- Save to logs      kick_user(user_id, msg.to.id)
       end
     end
     -- Check if banned user joins chat
@@ -30,7 +29,7 @@ local function pre_process(msg)
       print('Checking invited user '..user_id)
       local banned = is_banned(user_id, msg.to.id)
       if banned and not is_momod2(msg.from.id, msg.to.id) or is_gbanned(user_id) and not is_admin2(msg.from.id) then -- Check it with redis
-        print('User is banned!')
+        print(' المستخدم محظور!')
       local print_name = user_print_name(msg.from):gsub("‮", "")
 	  local name = print_name:gsub("_", "")
         savelog(msg.to.id, name.." ["..msg.from.id.."] added a banned user >"..msg.action.user.id)-- Save to logs
@@ -101,7 +100,7 @@ local function kick_ban_res(extra, success, result)
 		receiver = 'channel#id'..chat_id
 	  end
 	  if success == 0 then
-		return send_large_msg(receiver, " <b> Cannot find user by that username! </b> ‼️")
+		return send_large_msg(receiver, " <b> لايمكن ايجاد قناة بهذا اليوزر </b> ‼️")
 	  end
       local member_id = result.peer_id
       local user_id = member_id
@@ -110,32 +109,32 @@ local function kick_ban_res(extra, success, result)
       local get_cmd = extra.get_cmd
        if get_cmd == "دي" then
          if member_id == from_id then
-            send_large_msg(receiver,  " <b> don't kick yourself </b>‼️")
+            send_large_msg(receiver,  " <b> لا تطرد نفسك </b>‼️")
 			return
          end
          if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-            send_large_msg(receiver, " <b> only for owner </b>‼️")
+            send_large_msg(receiver, " <b> للمدير فقط!!! </b>‼️")
 			return
          end
 		 kick_user(member_id, chat_id)
       elseif get_cmd == 'حظر' then
         if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-			send_large_msg(receiver, " <b> only for manger </b>‼️ ")
+			send_large_msg(receiver, " <b> للأداريين فقط!!! </b>‼️ ")
 			return
         end
-        send_large_msg(receiver, ' <b> the user </b>🚩 @'..member..' ['..member_id..'] <b> the user has been band </b>🚩 ')
-		ban_user(member_id, chat_id)
-      elseif get_cmd == 'الغاء الحظر' then
-        send_large_msg(receiver, ' <b> the user </b>🚩 @'..member..' ['..member_id..']  <b> user has been band up  </b>💡 ')
-        local hash =  'banned:'..chat_id
+        send_large_msg(receiver, '<b>العضو تم حضره بنجاح 👮🏻</b> \n <b>🌀معرف العضو</b> @'..member..' \n <b>🆔 ايدي العضو</b> ['..member_id..'] ')
+    ban_user(member_id, chat_id)
+    elseif get_cmd == 'الغاء الحظر' then
+      send_large_msg(receiver, '<b>العضو تم الغاء حضره بنجاح ☃️</b> \n<b>|معرف العضو ~ </b> @'..member..'\n <b> | ايدي العضو ~ </b> ['..member_id..'] ')
+      local hash =  'banned:'..chat_id
         redis:srem(hash, member_id)
         return ' <b> the user </b>🚩 '..user_id..' <b> band up  </b>‼️ '
       elseif get_cmd == 'حظر عام' then
-        send_large_msg(receiver, ' <b> the user  </b>  @'..member..' ['..member_id..'] <b> banded from al gb sucss  </b>‼️ ')
-		banall_user(member_id)
-      elseif get_cmd == 'الغاء العام' then
-        send_large_msg(receiver, ' <b> the user </b>🚩  @'..member..' ['..member_id..'] <b> ban from all gb up  </b>💡 ')
-	    unbanall_user(member_id)
+        send_large_msg(receiver, '<b>العضو تم حضره عام بنجاح ☃️</b> \n<b>|معرف العضو ~ </b> @'..member..'\n <b> | ايدي العضو ~ </b> ['..member_id..'] ')
+    banall_user(member_id)
+    elseif get_cmd == 'الغاء العام' then
+      send_large_msg(receiver, '<b>العضو تم الغاء حضره بنجاح ☃️</b> \n<b>|معرف العضو ~ </b> @'..member..'\n <b> | ايدي العضو ~ </b> ['..member_id..'] ')
+    unbanall_user(member_id)
     end
 end--]]
 local function pre_process(msg)
@@ -233,7 +232,7 @@ local function kick_ban_res(extra, success, result)
 		receiver = 'channel#id'..chat_id
 	  end
 	  if success == 0 then
-		return send_large_msg(receiver, "Cannot find user by that username!")
+		return send_large_msg(receiver, "لا يمكن ايجاد قناة بهذا اليوزر!!")
 	  end
       local member_id = result.peer_id
       local user_id = member_id
@@ -242,32 +241,32 @@ local function kick_ban_res(extra, success, result)
       local get_cmd = extra.get_cmd
        if get_cmd == "دي" then
          if member_id == from_id then
-            send_large_msg(receiver, " <b> only for owner  </b>‼️ ")
+            send_large_msg(receiver, " <b> للمدير فقط </b>‼️ ")
 			return
          end
          if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-            send_large_msg(receiver, " <b> only for owner  </b>‼️")
+            send_large_msg(receiver, " <b> للمدير فقط </b>‼️")
 			return
          end
 		 kick_user(member_id, chat_id)
       elseif get_cmd == 'حظر' then
         if is_momod2(member_id, chat_id) and not is_admin2(sender) then
-			send_large_msg(receiver, " <b> only for owner  </b>‼️")
+			send_large_msg(receiver, " <b> للمدير فقط </b>‼️")
 			return
-        end
-        send_large_msg(receiver, ' <b> the user </b>🚩 @'..member..' ['..member_id..']  <b> has banded </b>💡 ')
-		ban_user(member_id, chat_id)
-      elseif get_cmd == 'الغاء الحظر' then
-        send_large_msg(receiver, ' <b>  the user </b>🚩 @'..member..' ['..member_id..'] <b> banded up  </b>💡 ')
-        local hash =  'banned:'..chat_id
+      end
+      send_large_msg(receiver, '<b>العضو تم حضره بنجاح ☃️</b> \n<b>|معرف العضو ~ </b> @'..member..'\n <b> | ايدي العضو ~ </b> ['..member_id..'] ')
+    ban_user(member_id, chat_id)
+    elseif get_cmd == 'الغاء الحظر' then
+      send_large_msg(receiver, '<b>العضو تم الغاء حضره بنجاح ☃️</b> \n<b>|معرف العضو ~ </b> @'..member..'\n <b> | ايدي العضو ~ </b> ['..member_id..'] ')
+    local hash =  'banned:'..chat_id
         redis:srem(hash, member_id)
-        return ' <b>  the user </b>🚩 '..user_id..'  <b> banded up  </b>💡'
+        return ' <b>  المستخدم </b>🚩 '..user_id..'  <b> تم الغاء حظره  </b>💡'
       elseif get_cmd == 'حظر عام' then
-        send_large_msg(receiver, ' <b>  the user </b>🚩 @'..member..' ['..member_id..']  <b> banded from al gb  </b>💡 ')
-		banall_user(member_id)
-      elseif get_cmd == 'الغاء العام' then
-        send_large_msg(receiver, ' <b>  the user </b>🚩 @'..member..' ['..member_id..']  <b> banded up  </b>💡')
-	    unbanall_user(member_id)
+        send_large_msg(receiver, '<b>العضو تم حضره عام بنجاح ☃️</b> \n<b>|معرف العضو ~ </b> @'..member..'\n <b> | ايدي العضو ~ </b> ['..member_id..'] ')
+    banall_user(member_id)
+    elseif get_cmd == 'الغاء العام' then
+      send_large_msg(receiver, '<b>العضو تم الغاء حضره بنجاح ☃️</b> \n<b>|معرف العضو ~ </b> @'..member..'\n <b> | ايدي العضو ~ </b> ['..member_id..'] ')
+    unbanall_user(member_id)
     end
 end
 
@@ -275,7 +274,7 @@ local function run(msg, matches)
 local support_id = msg.from.id
  if matches[1]:lower() == 'ايدي' and msg.to.type == "chat" or msg.to.type == "user" then
     if msg.to.type == "user" then
-      return "🔺 <b> bot id  </b>  : "..msg.to.id.. "\n\n🔺   <b>  your id </b>  : "..msg.from.id.. "\n  <b> devplomer  </b> \n ابو سكروب > @iq_100k 🔺 "
+      return "🔺 <b> ايدي البوت </b>  : "..msg.to.id.. "\n\n🔺   <b> ايديك  </b>  : "..msg.from.id.. "\n  <b> devplomer  </b> \n بلاك > @xmvmx 🔺 "
     end
     if type(msg.reply_id) ~= "nil" then
       local print_name = user_print_name(msg.from):gsub("‮", "")
@@ -323,18 +322,18 @@ local support_id = msg.from.id
          	return
         end
         if not is_admin1(msg) and is_momod2(matches[2], msg.to.id) then
-          	return " <b> only for owner  </b> ‼️"
+          	return " <b> للمدير فقط!!! </b> ‼️"
         end
         if tonumber(matches[2]) == tonumber(msg.from.id) then
-          	return " <b> only for owner  </b> ‼️ "
+          	return " <b> للمدير فقط!!! </b> ‼️ "
         end
         local print_name = user_print_name(msg.from):gsub("‮", "")
 	    local name = print_name:gsub("_", "")
 		local receiver = get_receiver(msg)
         savelog(msg.to.id, name.." ["..msg.from.id.."] baned user ".. matches[2])
         ban_user(matches[2], msg.to.id)
-		send_large_msg(receiver, ' <b> the user </b>🚩 ['..matches[2]..']  <b> has been banded </b>💡  ')
-      else
+    send_large_msg(receiver, '<b>ok</b> \n <b>ok2</b> ['..matches[2]..'] ')
+  else
 		local cbres_extra = {
 		chat_id = msg.to.id,
 		get_cmd = 'حظر',
@@ -361,7 +360,7 @@ local support_id = msg.from.id
         	local print_name = user_print_name(msg.from):gsub("‮", "")
 			local name = print_name:gsub("_", "")
         	savelog(msg.to.id, name.." ["..msg.from.id.."] unbaned user ".. matches[2])
-        	return ' <b> the user </b>🚩  '..user_id..'  <b> has been band up </b>💡 '
+        	return ' <b> المستخدم </b>🚩  '..user_id..'  <b> تم رفع الحظر </b>💡 '
       else
 		local cbres_extra = {
 			chat_id = msg.to.id,
@@ -386,10 +385,10 @@ if matches[1]:lower() == 'دي' then
 			return
 		end
 		if not is_admin1(msg) and is_momod2(matches[2], msg.to.id) then
-			return " <b> only fo owner </b>‼️ "
+			return " <b> للمدير فقط </b>‼️ "
 		end
 		if tonumber(matches[2]) == tonumber(msg.from.id) then
-			return " <b> only fo owner </b>‼️ "
+			return " <b> للمدير فقط </b>‼️ "
 		end
     local user_id = matches[2]
     local chat_id = msg.to.id
@@ -427,7 +426,7 @@ end
          	return false
         end
         	banall_user(targetuser)
-       		return ' <b> the user </b>🚩  ['..user_id..' ]  <b> has been band from all gb </b>‼️ '
+       		return ' <b> المستخدم </b>🚩  ['..user_id..' ]  <b> تم حظره من المجموعه!!! </b>‼️ '
      else
 	local cbres_extra = {
 		chat_id = msg.to.id,
@@ -447,7 +446,7 @@ end
           	return false
         end
        		unbanall_user(user_id)
-        	return ' <b> the user </b>🚩  ['..user_id..' ] <b> has ben band up </b>❌ '
+        	return ' <b> المستخدم </b>🚩  ['..user_id..' ] <b> تم الغاء الحظر العام </b>❌ '
     else
 		local cbres_extra = {
 			chat_id = msg.to.id,
