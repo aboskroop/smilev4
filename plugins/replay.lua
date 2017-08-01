@@ -322,8 +322,6 @@ patterns = {
 run = iq_100k,
 }
 end
--- write by dev aboskrop
--- tele : @iq_100k
 --[[
        _               _                      _            _  ___   ___  _    
   __ _| |__   ___  ___| | ___ __ ___  _ __   (_) __ _     / |/ _ \ / _ \| | __
