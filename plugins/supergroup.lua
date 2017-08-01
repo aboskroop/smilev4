@@ -45,7 +45,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-      local text = '<b>¦ BOT HAS BEEN STARTED ¦</b>💡'
+      local text = '<b>  ¦  تم تفعيل البوت بنجاح </b>👷🏻¦  \n <b>¦ by ⚠️ : </b>  @'..(msg.from.username or "erorr")..'\n <b>¦ ch 📚</b> @porgramer2017'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -69,7 +69,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-      local text = '<b>¦ BOT HAS BEEN STOP ¦</b>🗿'
+      local text = '<b>  ¦  تم تعطيل البوت بنجاح </b>🔚¦  \n <b>¦ by ⚠️ : </b>  @'..(msg.from.username or "erorr")..'\n <b>¦ ch 📚</b> @porgramer2017'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -177,7 +177,7 @@ end
     send_document(cb_extra.receiver,"./groups/lists/supergroups/kicked/"..cb_extra.receiver..".txt", ok_cb, false)
     --send_large_msg(cb_extra.receiver, text)
 end
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------- اعدادات القفل ----------------------------------------------------------------------
 --Begin supergroup locks
 local function lock_group_links(msg, data, target)
   if not is_momod(msg) then
@@ -185,11 +185,11 @@ local function lock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'yes' then
-    return reply_msg(msg.id, "<b> LINKS is Already Locked </b>💡 ️", ok_cb, false)
+    return reply_msg(msg.id, "<b> ¦ تم قفل الروابط مسبقا </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)
   else
     data[tostring(target)]['settings']['lock_link'] = 'yes'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> The Links Locked now </b>🔐 ", ok_cb, false)
+    return reply_msg(msg.id, "<b> ¦ تم قفل الروابط بنجاح </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)
   end
 end
 
@@ -199,11 +199,11 @@ local function unlock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'no' then
-    return reply_msg(msg.id, "<b> LINKS is Already Unlocked </b>💡 ️", ok_cb, false)
+    return reply_msg(msg.id, "<b> ¦ تم فتح الروابط مسبقا </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)
   else
     data[tostring(target)]['settings']['lock_link'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> The Links unlocked now </b>🔓 ", ok_cb, false)
+    return reply_msg(msg.id, "<b> ¦ تم فتح الروابط بنجاح </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)
   end
 end
 
@@ -216,12 +216,10 @@ local function lock_group_spam(msg, data, target)
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'yes' then
-    return reply_msg(msg.id, "<b> list is already locked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم قفل التفليش مسبقا </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_spam'] = 'yes'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the list locked now </b>🔐 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم قفل التفليش بنجاح </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function unlock_group_spam(msg, data, target)
@@ -230,12 +228,10 @@ local function unlock_group_spam(msg, data, target)
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'no' then
-    return reply_msg(msg.id, "<b> list is already unlocked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم قفل التفليش مسبقا </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_spam'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the list unlocked now </b>🔓 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم فتح التفليش بنجاح </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function lock_group_flood(msg, data, target)
@@ -244,12 +240,10 @@ local function lock_group_flood(msg, data, target)
   end
   local group_flood_lock = data[tostring(target)]['settings']['flood']
   if group_flood_lock == 'yes' then
-    return reply_msg(msg.id, "<b> flood is already locked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم قفل التكرار مسبقا </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['flood'] = 'yes'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the flood locked now </b>🔐 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم قفل التكرار بنجاح </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function unlock_group_flood(msg, data, target)
@@ -258,12 +252,10 @@ local function unlock_group_flood(msg, data, target)
   end
   local group_flood_lock = data[tostring(target)]['settings']['flood']
   if group_flood_lock == 'no' then
-    return reply_msg(msg.id, "<b> Flood is already unlocked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم فتح التكرار مسبقا </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['flood'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the Flood unlocked now </b>🔓 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم فتح التكرار بنجاح </b>🔗 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function lock_group_arabic(msg, data, target)
@@ -272,12 +264,10 @@ local function lock_group_arabic(msg, data, target)
   end
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic']
   if group_arabic_lock == 'yes' then
-    return reply_msg(msg.id, "<b> Arabic is already locked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم قفل العربيه مسبقا </b>📍 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_arabic'] = 'yes'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the Ar locked now </b>🔐 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم قفل العربيه بنجاح </b>📍 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function unlock_group_arabic(msg, data, target)
@@ -286,12 +276,10 @@ local function unlock_group_arabic(msg, data, target)
   end
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic']
   if group_arabic_lock == 'no' then
-    return reply_msg(msg.id, "<b> Arabic is already unlocked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم فتح العربيه مسبقا </b>📍 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_arabic'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the Ar unlocked now </b>🔓 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم فتح العربيه بنجاح </b>📍 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function lock_group_membermod(msg, data, target)
@@ -300,13 +288,11 @@ local function lock_group_membermod(msg, data, target)
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'yes' then
-    return reply_msg(msg.id, "<b> invite is already locked </b>💡 ??️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم قفل الاضافه مسبقا </b>📯 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_member'] = 'yes'
     save_data(_config.moderation.data, data)
   end
-    return reply_msg(msg.id, "<b> the invite locked now </b>🔐 ", ok_cb, false)
-end
+return reply_msg(msg.id, "<b> ¦ تم قفل الاضافه بنجاح </b>📯 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)end
 
 local function unlock_group_membermod(msg, data, target)
   if not is_momod(msg) then
@@ -314,12 +300,10 @@ local function unlock_group_membermod(msg, data, target)
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'no' then
-    return reply_msg(msg.id, "<b> invite is already unlocked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم فتح الاضافه مسبقا </b>📯 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_member'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the invite unlocked now </b>🔓 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم فتح الاضافه بنجاح </b>📯 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function lock_group_rtl(msg, data, target)
@@ -328,12 +312,10 @@ local function lock_group_rtl(msg, data, target)
   end
   local group_rtl_lock = data[tostring(target)]['settings']['lock_rtl']
   if group_rtl_lock == 'yes' then
-    return reply_msg(msg.id, "<b> add all is already locked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ الاضافه الجماعيه مقفوله </b>📯 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_rtl'] = 'yes'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> add all locked now </b>🔐 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم قفل الاضافه الجماعيه </b>📯 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function unlock_group_rtl(msg, data, target)
@@ -342,12 +324,10 @@ local function unlock_group_rtl(msg, data, target)
   end
   local group_rtl_lock = data[tostring(target)]['settings']['lock_rtl']
   if group_rtl_lock == 'no' then
-    return reply_msg(msg.id, "<b> add all is already unlocked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ الاضافه الجماعيه مفتوحه </b>📯 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_rtl'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> add all unlocked now </b>🔓 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم فتح الاضافه الجماعيه </b>📯 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function lock_group_sticker(msg, data, target)
@@ -356,12 +336,10 @@ local function lock_group_sticker(msg, data, target)
   end
   local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
   if group_sticker_lock == 'yes' then
-    return reply_msg(msg.id, "<b> stickers is already locked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم قفل الملصقات مسبقا </b>🌞 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_sticker'] = 'yes'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the stickers locked now </b>🔐 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم قفل الملصقات بنجاح </b>🌞 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function unlock_group_sticker(msg, data, target)
@@ -370,26 +348,23 @@ local function unlock_group_sticker(msg, data, target)
   end
   local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
   if group_sticker_lock == 'no' then
-    return reply_msg(msg.id, "<b> stickers already unlocked ?#</b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم فتح الملصقات مسبقا </b>🌞 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_sticker'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the stickers unlocked now </b>🔓 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم فتح الملصقات بنجاح </b>🌞 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function lock_group_contacts(msg, data, target)
   if not is_momod(msg) then
     return
   end
-  local group_rtl_lock = data[tostring(target)]['settings']['lock_contacts']
+  local group_contacts_lock = data[tostring(target)]['settings']['lock_contacts']
   if group_contacts_lock == 'yes' then
-    return reply_msg(msg.id, "<b> contacts already locked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم قفل الجهات مسبقا </b>👤 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_contacts'] = 'yes'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the contacts locked now </b>🔐 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم قفل الجهات بنجاح </b>👤 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)
+end
 end
 
 local function unlock_group_contacts(msg, data, target)
@@ -398,12 +373,10 @@ local function unlock_group_contacts(msg, data, target)
   end
   local group_contacts_lock = data[tostring(target)]['settings']['lock_contacts']
   if group_contacts_lock == 'no' then
-    return reply_msg(msg.id, "<b> contacts already unlocked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم فتح الجهات مسبقا </b>👤 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['lock_contacts'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the contacts unlocked now </b>🔓 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم فتح الجهات بنجاح </b>👤 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function enable_strict_rules(msg, data, target)
@@ -412,12 +385,10 @@ local function enable_strict_rules(msg, data, target)
   end
   local group_strict_lock = data[tostring(target)]['settings']['strict']
   if group_strict_lock == 'yes' then
-    return reply_msg(msg.id, "<b> settings already locked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم قفل الكل مسبقا </b>🎛 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['strict'] = 'yes'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the settings locked now </b>🔐 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم قفل الكل بنجاح </b>🎛 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 
 local function disable_strict_rules(msg, data, target)
@@ -426,12 +397,10 @@ local function disable_strict_rules(msg, data, target)
   end
   local group_strict_lock = data[tostring(target)]['settings']['strict']
   if group_strict_lock == 'no' then
-    return reply_msg(msg.id, "<b> settings already unlocked </b>💡 ️", ok_cb, false)
-  else
+return reply_msg(msg.id, "<b> ¦ تم فتح الكل مسبقا </b>🎛 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  else
     data[tostring(target)]['settings']['strict'] = 'no'
     save_data(_config.moderation.data, data)
-    return reply_msg(msg.id, "<b> the settings unlocked now </b>🔓 ", ok_cb, false)
-  end
+return reply_msg(msg.id, "<b> ¦ تم فتح الكل بنجاح </b>🎛 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017 ", ok_cb, false)  end
 end
 --End supergroup locks
 
@@ -443,14 +412,14 @@ local function set_rulesmod(msg, data, target)
   local data_cat = 'rules'
   data[tostring(target)][data_cat] = rules
   save_data(_config.moderation.data, data)
-  return '  <b> ¦ rules has been set  </b>💡'
+  return '  <b> ¦ تم وضع القوانين بنجاح  </b>💡'
 end
 
 --'Get supergroup rules' function
 local function get_rules(msg, data)
   local data_cat = 'rules'
   if not data[tostring(msg.to.id)][data_cat] then
-    return '<b> thier is not rules here  </b>💡'
+    return '<b> لا توجد قوانين هنا  </b>💡'
   end
   local rules = data[tostring(msg.to.id)][data_cat]
   local group_name = data[tostring(msg.to.id)]['settings']['set_name']
@@ -528,7 +497,7 @@ function show_supergroup_settingsmod(msg, target)
         end
     end
   local settings = data[tostring(target)]['settings']
-  local text = "🌐<b> ANTI GB </b> ️\n🔐 <b> LOCK LINKS </b> : "..settings.lock_link.."\n🔐 <b> LOCK FLOOD </b> : "..settings.flood.."\n🔄 <b> GB NUMBER FLOOD ACTIVE  </b>  : "..NUM_MSG_MAX.."\n🔐 <b> LOCK LIST </b> : "..settings.lock_spam.."\n🔐 <b> LOCK ARABIC  </b> : "..settings.lock_arabic.."\n🔐 <b> LOCK INVITE  </b> : "..settings.lock_member.."\n🔐 <b> LOCK LEAVING  </b> : "..settings.lock_rtl.."\n🔐 <b> LOCK STICKERS  </b> : "..settings.lock_sticker.."\n👁 <b> GB SECURITY </b> : "..settings.public.."\n🔐 LOCK SETTINGS </b> : "..settings.strict
+  local text = "🌐<b> اعدادات المجموعه هي </b> ️\n🔐 <b> قفل الروابط </b> : "..settings.lock_link.."\n🔐 <b> قفل التكرار </b> : "..settings.flood.."\n🔄 <b> الحد الاقصى للتكرار  </b>  : "..NUM_MSG_MAX.."\n🔐 <b> قفل التفليش </b> : "..settings.lock_spam.."\n🔐 <b> قفل العربيه  </b> : "..settings.lock_arabic.."\n🔐 <b> قفل الاضافه  </b> : "..settings.lock_member.."\n🔐 <b>قفل المغادره  </b> : "..settings.lock_rtl.."\n🔐 <b> قفل الملصقات  </b> : "..settings.lock_sticker.."\n👁 <b> المراقبه </b> : "..settings.public.."\n🔐 قفل الاعدادات </b> : "..settings.strict
 return text
 end
 
@@ -541,7 +510,7 @@ local function promote_admin(receiver, member_username, user_id)
   end
   if data[group]['moderators'][tostring(user_id)] then
     return send_large_msg(receiver, member_username..' <b> ¦ he is already admin </b>💡')
-  end
+    end
   data[group]['moderators'][tostring(user_id)] = member_tag_username
   save_data(_config.moderation.data, data)
 end
@@ -567,11 +536,11 @@ local function promote2(receiver, member_username, user_id)
     return send_large_msg(receiver, 'المجموعه 👥 ليست فعاله ⚠️❗️')
   end
   if data[group]['moderators'][tostring(user_id)] then
-    return send_large_msg(receiver, member_username..' <b> ¦ he is already admin </b>💡 ')
+    return send_large_msg(receiver, member_username..' <b> ¦ هو ادمن مسبقا </b>💡 ')
   end
   data[group]['moderators'][tostring(user_id)] = member_tag_username
   save_data(_config.moderation.data, data)
-  send_large_msg(receiver, member_username..'  <b> ¦ you are admin now </b>🚩')
+  send_large_msg(receiver, member_username..' <b>¦ تم رفعه ادمن </b>📮')
 end
 
 local function demote2(receiver, member_username, user_id)
@@ -581,11 +550,11 @@ local function demote2(receiver, member_username, user_id)
     return 'المجموعه 👥 ليست فعاله ⚠️❗️'
   end
   if not data[group]['moderators'][tostring(user_id)] then
-     return send_large_msg(receiver, member_username..' <b> ¦ he is not admin </b>😐 ')
+     return send_large_msg(receiver, member_username..'<b> ¦ليس ادمن </b>⚠️ ')
   end
   data[group]['moderators'][tostring(user_id)] = nil
   save_data(_config.moderation.data, data)
-  send_large_msg(receiver, member_username..'   <b> ¦ you are demoted to member </b>💡')
+  send_large_msg(receiver, member_username..'<b> ¦ تم تنزيله بنجاح </b>🌞')
 end
 
 local function modlist(msg)
@@ -958,7 +927,12 @@ elseif get_cmd == "رفع اداري" then
                 if result.username then
                     text = member_username.." ["..v.peer_id.."]  <b> ¦ Gb has apoenteid owner </b>💡 "
                 else
-                    text = "["..v.peer_id.."]  <b> ¦ Gb has apoenteid owner </b>💡 "
+                    text = "<b> ¦ تم رفعك مدير بنجاح </b>📮\n <b>¦ معرفك ⚠️ </b> [@"..member.."] \n <b>→→→→⚙️SV4→→→→ </b> \n <b>¦ جديدنا </b>📚 @porgramer2017 "
+
+
+
+
+
                 end
             end
         elseif memberid and vusername ~= member and vpeer_id ~= memberid then
@@ -1033,8 +1007,8 @@ local function run(msg, matches)
                 return
             end
             if is_super_group(msg) then
-                return reply_msg(msg.id, ' <b> ¦ bot is already started ¦ </b>💡 ', ok_cb, false)
-            end
+              return reply_msg(msg.id, ' <b>  ¦  تم تفعيل البوت مسبقا 👷🏻</b> \n <b>¦ by ⚠️ : </b>  @'..(msg.from.username or "erorr")..'\n <b>¦ ch 📚</b> @porgramer2017 ', ok_cb, false)
+              end
             print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") added")
             savelog(msg.to.id, name_log.." ["..msg.from.id.."] added SuperGroup")
             superadd(msg)
@@ -1043,8 +1017,8 @@ local function run(msg, matches)
         end
 
         if matches[1] == 'تعطيل' and is_admin1(msg) and not matches[2] then            if not is_super_group(msg) then
-                return reply_msg(msg.id, ' <b> ¦ bot is already stopped ¦ </b>❌ ️', ok_cb, false)
-            end
+          return reply_msg(msg.id, ' <b>  ¦  تم تعطيل البوت مسبقا 👷🏻</b> \n <b>¦ by ⚠️ : </b>  @'..(msg.from.username or "erorr")..'\n <b>¦ ch 📚</b> @porgramer2017 ', ok_cb, false)
+          end
             print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") removed")
             superrem(msg)
             rem_mutes(msg.to.id)
@@ -1192,7 +1166,7 @@ local function run(msg, matches)
             return " عزيزي : ".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".."🚀ارسل لي الرابط الآن 🚀"
         end
         if msg.text then
-            if msg.text:match("^(https://telegram.me/joinchat/%S+)$") and data[tostring(msg.to.id)]['settings']['set_link'] == 'waiting' and is_owner(msg) then
+            if msg.text:match("^(https://t.me/joinchat/%S+)$") and data[tostring(msg.to.id)]['settings']['set_link'] == 'waiting' and is_owner(msg) then
                 data[tostring(msg.to.id)]['settings']['set_link'] = msg.text
                 save_data(_config.moderation.data, data)
                 return " عزيزي : ".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".."تم ☑️ حفظ الرابط 📌😽"
@@ -1491,7 +1465,7 @@ local function run(msg, matches)
                 return lock_group_links(msg, data, target)
             end
 
-            if matches[2] == 'الكلايش' then
+            if matches[2] == 'التفليش' then
                 savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked spam ")
                 return lock_group_spam(msg, data, target)
             end
@@ -1532,7 +1506,7 @@ local function run(msg, matches)
                 savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked link posting")
                 return unlock_group_links(msg, data, target)
             end
-            if matches[2] == 'الكلايش' then
+            if matches[2] == 'التفليش' then
                 savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked spam")
                 return unlock_group_spam(msg, data, target)
             end
@@ -1598,9 +1572,9 @@ local function run(msg, matches)
                 if not is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
                     mute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "  <b> the audio locked now </b>🎵 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الصوتيات بنجاح </b>🎵 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "  <b> audio is already locked  </b>💡 ️", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الصوتيات مسبقا </b>🎵 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
 	
@@ -1609,9 +1583,9 @@ local function run(msg, matches)
                 if not is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
                     mute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "🃏 <b> the pic locked now </b>🔐 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الصور بنجاح </b>🃏 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "🃏  <b> picture is already locked </b>💡 ️", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الصور مسبقا </b>🃏 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
 			
@@ -1620,9 +1594,9 @@ local function run(msg, matches)
                 if not is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
                     mute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, " <b> the videos locked now </b>🔓 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الفيديو بنجاح </b>🎥 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                    return msg_type..reply_msg(msg.id, " <b> videos is already locked </b>🔓 ", ok_cb, false)        
+                    return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الفيديو مسبقا </b>🎥 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'المتحركه' then
@@ -1630,9 +1604,9 @@ local function run(msg, matches)
                 if not is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
                     mute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "🎭 <b> the gifs locked now </b>🔐 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم قفل المتحركه بنجاح </b>📟 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "🎭 <b> gifs is already locked </b>💡 ️", ok_cb, false)        
+                    return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم قفل المتحركه مسبقا </b>📟 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'الفايلات' then
@@ -1640,9 +1614,9 @@ local function run(msg, matches)
                 if not is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
                     mute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "📂 <b> the files locked now </b>🔐 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الفايلات بنجاح </b>📁 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "📂 <b> files is already locked </b>💡 ️", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الفايلات مسبقا </b>📁 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'الدردشه' then
@@ -1650,9 +1624,9 @@ local function run(msg, matches)
                 if not is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
                     mute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, " <b> the chat locked now </b>🚩", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الدردشه بنجاح </b>📊 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, " <b> chat is already locked </b>💡 ", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم قفل الدردشه مسبقا </b>📊 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'المجموعه' then
@@ -1660,9 +1634,9 @@ local function run(msg, matches)
                 if not is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
                     mute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "🚶 <b> the group locked now </b>️💡 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم قفل المجموعه بنجاح </b>📊 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "🚶 <b> group is already locked </b>💡  ", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم قفل المجموعه مسبقا </b>📊 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
         end
@@ -1674,9 +1648,9 @@ local function run(msg, matches)
                 if is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
                     unmute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, " <b> the audio unlocked now </b>🔓 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الصوتيات بنجاح </b>🎵 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "🎵<b> audio is already unlocked </b>💡", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الصوتيات مسبقا </b>🎵 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end				
             if matches[2] == 'الصور' then
@@ -1684,9 +1658,9 @@ local function run(msg, matches)
                 if is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
                     unmute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, " <b> the pic unlocked now </b>🔓 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الصور بنجاح </b>🃏 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                    return msg_type..reply_msg(msg.id, " <b> pic is already unlocked </b>🔓 ", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الصور مسبقا </b>🃏 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'الفيديو' then
@@ -1694,9 +1668,9 @@ local function run(msg, matches)
                 if is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
                     unmute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "🎥 <b> the videos unlocked now </b>🔓 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الفيديو بنجاح </b>🎥 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, " <b> video is already unlocked </b>💡", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الفيديو مسبقا </b>🎥 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'المتحركه' then
@@ -1704,9 +1678,9 @@ local function run(msg, matches)
                 if is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
                     unmute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "🎭 <b> the gifs unlocked now </b>🔓 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم فتح المتحركه بنجاح </b>📟 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "🎭 <b> gifs is already unlocked </b>💡 ️", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم فتح المتحركه مسبقا </b>📟 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'الفايلات' then
@@ -1714,9 +1688,9 @@ local function run(msg, matches)
                 if is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
                     unmute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "📂 <b> the files unlocked now </b>🔓 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الملفات بنجاح </b>📁 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "📂 <b> files is already unlocked </b>💡 ️", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الملفات مسبقا </b>📁 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'الدردشه' then
@@ -1724,9 +1698,9 @@ local function run(msg, matches)
                 if is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute message")
                     unmute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "🚶 <b> the chat unlocked now </b>🔓 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الدردشه بنجاح </b>📊 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "🚶 <b> chat is already unlocked </b>💡 ️", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم فتح الدردشه مسبقا </b>📊 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
             if matches[2] == 'المجموعه' then
@@ -1734,9 +1708,9 @@ local function run(msg, matches)
                 if is_muted(chat_id, msg_type..': yes') then
                     savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
                     unmute(chat_id, msg_type)
-                    return msg_type..reply_msg(msg.id, "🚶 <b> the group unlocked now </b>🔓 ", ok_cb, false)        
+                    return msg_type..reply_msg(msg.id, " <b> ¦ تم فتح المجموعه بنجاح </b>📊 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 else
-                     return ""..msg_type..reply_msg(msg.id, "🚶 <b> group is already unlocked </b>💡 ️", ok_cb, false)        
+                     return ""..msg_type..reply_msg(msg.id, " <b> ¦ تم فتح المجموعه مسبقا </b>📊 \n <b>→→→→⚙️SV4→→→→ </b> \n<b>¦ ch </b>📚 @porgramer2017  ", ok_cb, false)
                 end
             end
         end
@@ -1904,7 +1878,7 @@ return {
     "^(المكتومين)$",
     "[#!/](mp) (.*)",
     "[#!/](md) (.*)",
-    "^(https://telegram.me/joinchat/%S+)$",
+    "^(https://t.me/joinchat/%S+)$",
     "msg.to.peer_id",
     "%[(document)%]",
     "%[(photo)%]",
