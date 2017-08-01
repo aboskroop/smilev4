@@ -9,7 +9,7 @@
 local function iq_100k(msg, matches)   
 if not is_owner(msg) or not is_sudo(msg) then
 delete_msg(msg.id, ok_cb, true)
-local xxx = "عيب لتفشر يا خره 🌝 \n"..msg.from.first_name.."\n"
+local xxx = "<b>الفاضك تعكس تربيه والديك</b> 🌞 \n<b>معرفك |</b> ⚠️ : @"..msg.from.username.."\n"
 return xxx
 -- by @iq_100k
 end
