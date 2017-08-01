@@ -13,7 +13,7 @@ local function iq_100k(msg, matches)
     if redis:get(uuser) then
     if not is_momod(msg) then
       delete_msg(msg.id, ok_cb, true)
-    local warn = "\n"..msg.from.first_name.."\n".." <b> don't send user name </b>‼️ ".."\n".."🔹 <b> your username </b> : @"..msg.from.username.."\n"
+    local warn = "\n"..msg.from.first_name.."\n".." <b>عزيزي اليوزرنيم مقفل </b>‼️ ".."\n".."🔹 <b> معرفك </b> : @"..msg.from.username.."\n <b>→→→→⚙️SV4→→→→ </b> \n <b>جديدنا </b>📚: @porgramer2017"
     return reply_msg(msg.id, warn, ok_cb, true) 
     end
    end 
@@ -21,12 +21,12 @@ local function iq_100k(msg, matches)
  if is_momod(msg) and matches[1]=="قفل اليوزر"    then
     local uuser = "mate"..msg.to.id
     redis:set(uuser,true)
-local text = '<b>  ¦ Protection User ON </b>💡 \n <b> ¦ from ⚠️ : </b>  '..(msg.from.first_name or "erorr")..'\n' 
+local text = '<b> ¦  تم قفل اليوزر بنجاح </b>🗿 \n <b>¦ بواسطه ⚠️ : </b> @'..(msg.from.username or "erorr")..'\n<b>→→→→⚙️SV4→→→→</b> \n <b>¦ جديدنا </b> 📚 @porgramer2017'
 return reply_msg(msg.id, text, ok_cb, false)
     end
      if is_momod(msg) and matches[1]=="فتح اليوزر"    then
     redis:del(uuser)
-   local text = '<b>  ¦ protection User OFF </b>💡 \n <b> ¦ from ⚠️ : </b>  '..(msg.from.first_name or "erorr")..'\n' 
+   local text = '<b> ¦  تم فتح اليوزر بنجاح </b>🚦 \n <b>¦ بواسطه ⚠️ : </b> @'..(msg.from.username or "erorr")..'\n<b>→→→→⚙️SV4→→→→</b> \n <b>¦ جديدنا </b> 📚 @porgramer2017'
    return reply_msg(msg.id, text, ok_cb, false)
 end
     
